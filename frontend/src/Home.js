@@ -7,6 +7,7 @@ import Date from "./Date";
 // import deltinlogo from '../public/deltinlogo.png';
 import axios from "axios";
 import "@fontsource/mulish";
+import { Link as RouterLink } from "react-router-dom";
 
 
 import Link from "@material-ui/core/Link";
@@ -26,8 +27,12 @@ function App() {
     <h1>Cash Transaction Report</h1><hr/>
         <h1 id="title">Welcome to Deltin Groups</h1>
         <h2>
-              <Link to='/verification' underLine="none">Click Here </Link><br />
-             
+             <Link className="link"
+              underline="none"
+             component={RouterLink}
+             to="/verification" >
+    Click Here 
+</Link>
             </h2>
     </div>
     

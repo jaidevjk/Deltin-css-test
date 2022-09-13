@@ -38,14 +38,14 @@ function Verification() {
     
     </div>
     <br /><br />
-    <form >   
+    <form onSubmit={verify}>   
     <Grid container spacing={0} rowSpacing={1} className="container">
     <Grid item xs={12}>
     					<Grid container   columnSpacing={{ xs: 1, sm: 2, md: 3,large:2 }} className="container1">
         				<Grid item xs={6} className="grid-label">
                       <label className="label" for="email">Select Location* </label></Grid>
-                       <Grid item xs={6} className="grid-input"><select  name='id' >
-                       <option value="one">----Select Location----</option>
+                       <Grid item xs={6} className="grid-input"><select  name='id' required>
+                       <option >Select Location</option>
                        <option value="two">1</option>
                        <option value="three">2</option>
                         <option value="four">3</option>
@@ -61,8 +61,8 @@ function Verification() {
                           <Grid container   columnSpacing={{ xs: 1, sm: 2, md: 3,large:2 }} className="container1">
         				<Grid item xs={6} className="grid-label">
                                   <label className="label" for="name">phonenumber No* </label></Grid>
-                    <Grid item xs={6} className="grid-input"><span><input className="input" type="number" value={num} name='phonenumber' onChange={(e)=> setNum(e.target.value)}
-                     required/></span><span><input type="submit" className="btn grid-btn" value="Get  - OTP"></input></span>
+                    <Grid item xs={6} className="grid-input"><span><input className="input" type="tel" value={num} name='phonenumber' onChange={(e)=> setNum(e.target.value)}
+                     required/></span><span><input type="submit" className="btn grid-btn" value="Get  - OTP" ></input></span>
                      			</Grid>
                                </Grid>
                                  </Grid>
@@ -74,8 +74,8 @@ function Verification() {
         				<Grid item xs={6} className="grid-label">
                     <label className="label" for="name">OTP* </label></Grid>
                     <Grid item xs={6} className="grid-input">
-                    <input className="input" type="text" name='name' id="fullName" placeholder="OTP" required/>
-                    <span><input type="submit" onClick={verify} className="btn grid-btn" value="Verify OTP"></input></span>
+                    <input className="input" type="text" name='name' id="otp" required/>
+                    <span><input type="submit"  className="btn grid-btn" value="Verify OTP"></input></span>
                     </Grid>
                                </Grid>
                  </Grid>

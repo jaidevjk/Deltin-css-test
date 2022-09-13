@@ -6,7 +6,6 @@
 }*/
 
 
-
 .container1 {
   /*border: solid green 2px;*/
   display: flex;
@@ -41,10 +40,10 @@ input{
  /* background-color:lightgrey;*/
   border-radius:5px ;
 }
-input[type=date],input[type=text],input[type=number],input[type=email],select,option{
+input[type=date],input[type=text],input[type=number],input[type=tel],input[type=email],select,option{
   font-weight: 500;
   font-size: large;
-  width: 300px;
+  width: 500px;
   height: 30px;
   
    border-radius:3px ;
