@@ -22,7 +22,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json());
 
-let mongoConnUrl = "mongodb://localhost/deltinuser";
+let mongoConnUrl = "mongodb+srv://ugreen:ugreen@cluster0.krmtx.mongodb.net/urbangreen?retryWrites=true&w=majority";
 mongoose.connect(mongoConnUrl, { useNewUrlParser: true });
 let db = mongoose.connection;
 db.on("error", function (error) {

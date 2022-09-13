@@ -1,11 +1,96 @@
- body{
+ /*body{
   font-family: "Mulish";
-  font-weight: 400;
-  font-size: small;
+  font-weight: 700;
+  font-size: medium;
+  width: 100%;
+}*/
+
+
+
+.container1 {
+  /*border: solid green 2px;*/
+  display: flex;
+  
+  
 }
+
+.grid-label {
+  /*border: solid green 2px;*/
+  text-align: right;
+  align-items: center;
+  /*margin-right: 20px;*/
+
+  
+  
+}
+
+.grid-input {
+  /*border: solid green 2px;*/
+  display: flex;
+  text-align: left;
+  align-items: center;
+   /* font-weight: 500;
+  font-size: medium;
+  width: 100%;*/
+
+}
+
+input{
+  font-weight: 500;
+  font-size: large;
+ /* background-color:lightgrey;*/
+  border-radius:5px ;
+}
+input[type=date],input[type=text],input[type=number],input[type=email],select,option{
+  font-weight: 500;
+  font-size: large;
+  width: 300px;
+  height: 30px;
+  
+   border-radius:3px ;
+
+}
+input[type=submit]{
+  font-weight: 700;
+  font-size:small;
+  height: 50px;
+  text-align: center;
+}
+input[type="checkbox"]{
+  margin-left: -20px;
+  /*background-color:lightgrey;*/
+   border-radius:5px ;
+ }
+ input[type="radio"]{
+  
+  /*background-color:lightgrey;*/
+   border-radius:5px ;
+ }
+/*.grid-btn {
+  
+  text-align: center;
+  margin-left: 10px;
+}
+*/
+.header{
+  min-width: inherit;
+  /*border: solid grey 2px;*/
+}
+hr{
+  
+  border-width:10;
+  width: 100%;
+}
+#id{
+  border: solid grey 2px;
+  
+}
+
 .container {
   display: flex;
-  align-content: center;
+  /*border: solid red 4px;*/
+ 
+  
 }
 .footer {
 display: flex;
@@ -23,6 +108,13 @@ h1{
   /* border: solid red 2px; */
   /* font-size:x-large; */
 }
+
+#title{
+  font-family: "Mulish";
+  font-weight: 900;
+  
+}
+
 img {
   height: 100px;
   width: 250px;
@@ -33,9 +125,12 @@ img {
 .App {
   text-align: center;
   background-color:white;
+   font-weight: 500;
+  font-size: medium;
+  width: 100%;
 }
 
-.label{
+/*.label{
   font-family: "Mulish";
   font-weight: 400;
   display: inline-block;
@@ -52,12 +147,22 @@ img {
   margin: 2px;
   display: inline-block;
   width: 300px;
-  /* background-color: lightgrey; */
+   background-color: lightgrey; 
   
 }
-
+*/
 .footer{
     text-align: center;
+}
+
+.btnDiv,.btnDiv input{
+   display: inline-block;
+    text-align: center;
+    margin-left: 35%;
+    margin-right: 25%;
+    width: 30%;
+    font-weight: 500;
+  font-size: large;
 }
 
 .btn{
@@ -71,21 +176,13 @@ img {
   margin: 4px 2px;
   cursor: pointer;
   font-size: 10px;
-  background-color: orangered;
-  display:flex;
-  align-items: center;
-  align-content: center;
-  margin-left: 580px;
-  margin-top: 20px;
-  align-self:center;
+  background-color: #CFA660;
 }
 .required:after {
     content: "*";
     color: red;
   }
- input[type="checkbox"]{
-  margin-left: -20px;
- }
+ 
  .telephone{
    font-size: larger;
   padding: 5px;
