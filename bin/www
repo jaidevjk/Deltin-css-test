@@ -8,11 +8,15 @@ var app = require('../app');
 var debug = require('debug')('myapp:server');
 var http = require('http');
 
+// /* This is for testing purpose
+// */
+// console.log("Bin folder is running");
+
 /**
  * Get port from environment and store in Express.
  */
 
-var port = normalizePort(process.env.PORT || '4001');
+var port = normalizePort(process.env.PORT || '4002');
 app.set('port', port);
 
 /**
