@@ -6,6 +6,10 @@ const UserSchema = new mongoose.Schema({
         type: String,
         require: true
     },
+    location: {
+        type: String,
+        require: true
+    },
     phonenumber: {
         type: Number,
         require: true

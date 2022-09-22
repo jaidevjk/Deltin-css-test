@@ -1,4 +1,5 @@
-import React,{useState,useCallback} from 'react';
+import React,{useState,useCallback,
+useEffect} from 'react';
 import './App.css';
 import Grid from '@mui/material/Grid';
 import 'react-phone-number-input/style.css'
@@ -9,28 +10,46 @@ import axios from "axios";
 import "@fontsource/mulish";
 import {
     useParams,
+    useLocation
   } from "react-router-dom";
-
-function Register() {
+// import Location from './Verification'
+function Register(Verification) {
  
- const {userNumber} = useParams();
+
+// const{ `/verification` } = useLocation();
+// const { destructured param } = useParams();
+
+// useEffect(() => {
+  
+//   alert("Location is :" ,Location);
+// }, [Location]);
+
+
+ const {userNumber,userLocation} = useParams();
+ // const {} = useParams();
+  const Location1 = userLocation;
+  console.log(Location1)
     const inNum = userNumber;
-    alert(inNum)
+    // alert(inNum)
+     //alert("Location is :" ,Location1);
     const [inputNum,setinputNum] = useState(inNum);
     console.log(inputNum);
+    const [inputLoc,setinputLoc] = useState(Location1);
+    const [localDate,setLocalDate]= useState()
 
   const addUser = (e)=>{
 		e.preventDefault();
-		
+		alert(localDate)
 		const userObject ={
-			      name:e.target.name.value,
+			name:e.target.name.value,
+            location:e.target.location.value,
             gender:e.target.gender.value,
             phonenumber:e.target.phonenumber.value,
             email:e.target.Email.value,
             dob:e.target.dob.value,
             occupation:e.target.occupation.value,
-			      nationality: e.target.nationality.value,
-             address:e.target.address.value,
+			nationality: e.target.nationality.value,
+            address:e.target.address.value,
             country: e.target.country.value,
             state:e.target.state.value,
             city:e.target.city.value,
@@ -44,9 +63,9 @@ function Register() {
             source_of_fund: e.target.source_of_fund.value,
             employ_id:e.target.employ_id.value
 		}
-        console.log(userObject)
-		axios.post('http://localhost:4001/users/',userObject).then((res)=>{
-			alert(res.data);
+        //console.log(userObject)
+		axios.post('http://localhost:4002/users/',userObject).then((res)=>{
+			console.log(res.data);
             alert("success");
 			
 		})
@@ -76,7 +95,16 @@ function Register() {
                                </Grid>
                                  </Grid>
 
-                  
+                  <Grid item xs={12}>
+                                <Grid container   columnSpacing={{ xs: 1, sm: 2, md: 3,large:2 }} className="container1">
+                <Grid item xs={6} className="grid-label">
+                                  <label className="label" for="name">Location Selected* </label></Grid>
+                                <Grid item xs={6} className="grid-input">  <input type='text' name='location' className="input" value={inputLoc} disabled required />
+                                </Grid>
+                     
+                               </Grid>
+                                 </Grid>
+
                
                      <Grid item xs={12}>
                      <Grid container   columnSpacing={{ xs: 1, sm: 2, md: 3,large:2 }} className="container1">
@@ -188,13 +216,12 @@ function Register() {
                         <Grid item xs={12}>
                         <Grid container   columnSpacing={{ xs: 1, sm: 2, md: 3,large:2 }} className="container1">
                 <Grid item xs={6} className="grid-label">
-                      <label className="label" for="email">identification Document* </label></Grid>
+                      <label className="label" for="identification-type">Identification-type* </label></Grid>
                     <Grid item xs={6} className="grid-input">
-                       <select id="id" name='id' >
-                       <option value="cash">Aadhar Card</option>
-                       <option value="upi">Pan Card</option>
-                        <option value="emi">Voter Card</option>
-                         <option value="internet banking">Passportt</option>
+                    <select name='id'>
+                       <option value="adhaarcard">Adhaar Card</option>
+                       <option value="pancard">Pan Card</option>
+                        <option value="drivinglicense">Driving Licence</option>
                          </select>
                          </Grid>
                           </Grid>
@@ -327,3 +354,32 @@ function Register() {
 }
 
 export default Register;
+
+ // <td>{index + 1}</td>
+ //            <td>{val.location}</td>
+ //            <td>{val.name}</td>
+ //            <td>{val.emai}</td>
+ //            <td>{val.phonenumber}</td>
+
+ //            <td>{val.gender}</td>
+ //            <td>{val.dob}</td>
+ //            <td>{val.occuption}</td>
+
+ //            <td>{val.nationality}</td>
+ //            <td>{val.address}</td>
+ //            <td>{val.country}</td>
+ //            <td>{val.state}</td>
+ //            <td>{val.city}</td>
+ //            <td>{val.pincode}</td>
+ //            <td>{val.id}</td>
+ //            <td>{val.id_number}</td>
+ //            <td>{val.transaction_type}</td>
+ //            <td>{val.mode_of_payment}</td>
+ //            <td>{val.currency}</td>
+ //            <td>{val.transaction_amount}</td>
+ //            <td>{val.source_of_fund}</td>
+ //            <td>{val.employ_id}</td>
+ //            
+
+ //<input className="input" type="date" id="dob" name='dob' value={localDate} onChange={(e)=>{setLocalDate(e.target.value.split('T')[0])
+      //                            console.log(localDate)}}

@@ -6,7 +6,9 @@ import { Redirect } from "react-router-dom";
 import Home from "./Home";
 import Verification from "./Verification";
 import Register from "./Register";
-
+import AdminLogin from "./AdminLogin";
+import AdminHome from "./AdminHome";
+import RegisteredUsers from "./RegisteredUsers";
 
 export default function RouterApp() {
   return (
@@ -21,9 +23,10 @@ export default function RouterApp() {
         
        
         <Route  path="/verification" element={<Verification />} />
-        <Route  path="/register/:userNumber" element={<Register />} />
-        
-        
+        <Route  path="/register/:userNumber/:userLocation" element={<Register />} />
+        <Route  path="/login" element={<AdminLogin />} />
+        <Route  path="/adminhome" element={<AdminHome />} />
+        <Route  path="/registeredusers" element={<RegisteredUsers />} />
        
       
     </Routes>

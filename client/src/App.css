@@ -7,21 +7,97 @@
 
 
 .container1 {
+ /* border: solid green 2px;*/
+  display: flex;
+ /* padding-left: 5px;
+  margin-left: 0px;*/ 
+}
+
+/*//Admin card*/
+
+.adminCard {
+  display:inline-block;
+  align-items: center;
+ /* width: 600px;*/ 
+}
+
+.card{
+  display:inline-block;
+  align-items: center;
+  text-align: center;
+  background-color: cyan;
+  /*border: solid green 2px;*/
+}
+.card-grid{
+  display:inline-block;
+  text-align: center;
+  /*align-items: center;*/
+  text-align: center;
+  
+  margin-left: 0px;
+  /*border: solid green 2px;*/
+}
+
+.grid-card-input {
   /*border: solid green 2px;*/
   display: flex;
-  
+  text-align: left;
+  align-items: center;
+    font-weight: 500;
+  font-size: medium;
+  width: 100%;
+
+}
+
+.grid-card-label {
+  /*border: solid green 2px;*/
+  text-align: center;
+  align-items: center;
+  /*margin-right: 20px;*/
+}
+
+#card-container{
+  /* background-color:lightgrey;*/
+   /*text-align: center;
+   align-items: center;
+   align-content: center;
+   align-self: center;*/
+   margin: auto;
   
 }
+
+.LoginCard{
+   display:flex;
+   width: 100%;
+   height: 100%;
+   /*background-color:lightcyan;
+   border: solid green 2px;*/
+  
+}
+
+.Card-header{
+  background-color:lightcyan;
+   /*border: solid red 2px;*/
+   width: auto;
+   display: flex;
+  
+   position: absolute;
+    top:0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+}
+
+/*Card css ends*/
 
 .grid-label {
   /*border: solid green 2px;*/
   text-align: right;
   align-items: center;
   /*margin-right: 20px;*/
-
-  
-  
 }
+
 
 .grid-input {
   /*border: solid green 2px;*/
@@ -34,6 +110,9 @@
 
 }
 
+
+
+
 input{
   font-weight: 500;
   font-size: large;
@@ -45,7 +124,6 @@ input[type=date],input[type=text],input[type=number],input[type=tel],input[type=
   font-size: large;
   width: 500px;
   height: 30px;
-  
    border-radius:3px ;
 
 }
@@ -73,7 +151,8 @@ input[type="checkbox"]{
 */
 .header{
   min-width: inherit;
-  /*border: solid grey 2px;*/
+  text-align: center;
+  display: flex;
 }
 hr{
   
@@ -82,11 +161,17 @@ hr{
 }
 #id{
   border: solid grey 2px;
+   width: 100%;
+}
+
+#email,#password{
+  border: solid grey 2px;
   
 }
 
 .container {
   display: flex;
+  text-align: center;
   /*border: solid red 4px;*/
  
   
@@ -177,6 +262,24 @@ img {
   font-size: 10px;
   background-color: #CFA660;
 }
+
+.btn1{
+ border-radius: 10px;
+ border: none;
+  color: black;
+  padding: 15px 32px;
+  text-align: center;
+  text-decoration: none;
+  display: inline-block;
+  /*display:none;*/
+  visibility: hidden;
+  margin: 4px 2px;
+  cursor: none;
+  font-size: 10px;
+  background-color: none;
+}
+
+
 .required:after {
     content: "*";
     color: red;
@@ -191,3 +294,45 @@ img {
   height: 20px;
   flex: inherit;
  }
+
+/*Table css*/
+
+table {
+  max-width: 100%;
+  margin: auto;
+}
+thead{
+  background-color: cyan;
+}
+table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  text-align: left;
+  padding:5px;
+  
+}
+th{
+  text-align: center;
+  padding: 2px;
+}
+.slno{
+  width:1%;
+}
+
+
+tr:nth-child(even) {
+  
+  background-color: #D6EEEE;
+}
+
+
+
+/*Table css ends here*/
+
+/*DwnLoad Btn*/
+.dwn{
+  text-align: right;
+  border: solid grey 2px;
+}
+/*DwnLoad Btn ends*/
+

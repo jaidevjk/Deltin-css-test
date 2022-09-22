@@ -12,6 +12,7 @@ var cors = require('cors');
 
 var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
+var jwtRuter = require('./routes/jwt');
 
 var app = express();
 
@@ -22,7 +23,7 @@ app.use(express.json());
 app.use(bodyParser.urlencoded({ extended: false })); 
 app.use(bodyParser.json());
 
-let mongoConnUrl = "mongodb+srv://Deltin:Astor*0421@deltinpmla1.g2ryvou.mongodb.net/?retryWrites=true&w=majority";
+let mongoConnUrl = "mongodb://localhost/deltinuser";
 mongoose.connect(mongoConnUrl, { useNewUrlParser: true });
 let db = mongoose.connection;
 db.on("error", function (error) {
@@ -55,6 +56,7 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/jwt',jwtRuter);
 
 //For cors error-policy
 app.use(cors({

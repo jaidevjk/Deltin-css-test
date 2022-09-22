@@ -8,6 +8,7 @@ const User = require('../models/users');
 exports.createUser = (req,res) => {
     const newUser = new User({
         name: req.body.name,
+        location:req.body.location,
         phonenumber:req.body.phonenumber ,
         email:req.body.email ,
         dob:req.body.dob ,
@@ -47,7 +48,9 @@ exports.listUsers = (request, response) => {
         if(err){
             response.json(err);
         } else {
-            response.json({status: 1, data: users_list})
+            console.log("one:",users_list);
+            response.json({status: 1, data: users_list});
+
         }
     });
 };
@@ -58,3 +61,15 @@ exports.userformController = function(request,response){
     let completePath = path.join(__dirname+"/../user.html");
     response.sendFile(completePath);
 }
+
+exports.DeleteUsers = (request, response) => {
+    User.delete(function(err, users_list) {
+        if(err){
+            response.json(err);
+        } else {
+            console.log("one:",users_list);
+            response.json({status: 1, data: users_list});
+
+        }
+    });
+};
