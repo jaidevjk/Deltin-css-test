@@ -14,16 +14,26 @@ var indexRouter = require('./routes/index');
 var usersRouter = require('./routes/users');
 var jwtRuter = require('./routes/jwt');
 
+var imgRuter = require('./routes/img');
+var transactionRuter = require('./routes/transaction');
+
 var app = express();
 
 app.use(cors());
-app.use(express.json());
+//app.use(express.json());
 
 // Parses urlencoded bodies
-app.use(bodyParser.urlencoded({ extended: false })); 
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '50mb'}));
+app.use(bodyParser.urlencoded({limit: '50mb', extended: true}));
+app.use(express.json());
+// app.use(bodyParser.urlencoded({ extended: false })); 
+// app.use(bodyParser.json());
 
-let mongoConnUrl = "mongodb://localhost/deltinuser";
+// Set EJS as templating engine 
+app.set("view engine", "ejs");
+
+
+let mongoConnUrl = "mongodb+srv://jaidevk:4AL15ME715@cluster0.kmhzh.mongodb.net/?retryWrites=true&w=majority";
 mongoose.connect(mongoConnUrl, { useNewUrlParser: true });
 let db = mongoose.connection;
 db.on("error", function (error) {
@@ -57,6 +67,9 @@ app.use(express.static(path.join(__dirname, 'public')));
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
 app.use('/jwt',jwtRuter);
+app.use('/transaction',transactionRuter);
+
+app.use('/img',imgRuter);
 
 //For cors error-policy
 app.use(cors({
@@ -82,3 +95,7 @@ app.use(function(err, req, res, next) {
 });
 
 module.exports = app;
+
+// mongodb+srv://jaidevk:<password>@cluster0.kmhzh.mongodb.net/?retryWrites=true&w=majority
+
+// mongodb://localhost/deltinuser

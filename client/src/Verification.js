@@ -24,14 +24,38 @@ function Verification(props) {
 
   const verify = (e)=>{
 		e.preventDefault();
-		// let phoneNumber = e.phonenumber.target.value;
-    // let Location = e.target.id.value;
-    // console.log(Location)
-    // setLocation(e.target.place.valuee);
-    console.log(location1);
-		alert("Successfully Verified!");
-    // Location();
-		navigate(`/register/${num}/${location1}`);
+		
+
+
+    const userObject ={
+      phonenumber:num
+    }
+    axios.post('http://localhost:4002/users/userlogin',userObject).then((res)=>{
+      console.log(res.data);
+    alert("Successfully Verified!");
+    sessionStorage.setItem("userId",res.data.user.id);
+    console.log(sessionStorage.getItem("userId"))
+    const userId = sessionStorage.getItem("userId");
+    const userName = res.data.user.name;
+   //console.log(res.data.status);
+   if(sessionStorage.getItem("userId")){
+      alert("Player Already Registered")
+       navigate(`/transaction/${sessionStorage.getItem("userId")}/${location1}/${num}/${userName}`);
+    }
+      
+    })
+    .catch((error)=>{
+     
+       if(error == "AxiosError: Request failed with status code 400"){
+        alert("Please Register")
+      return navigate(`/register/${num}/${location1}`);
+      } else{
+
+        alert(error);
+      alert(" login failed");
+      }
+      
+    });
 
 	}
 

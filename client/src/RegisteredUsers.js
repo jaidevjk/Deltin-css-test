@@ -78,12 +78,8 @@ const verify = async()=>{
             <td>{val.pincode}</td>
             <td>{val.id}</td>
             <td>{val.id_number}</td>
-            <td>{val.transaction_type}</td>
-            <td>{val.mode_of_payment}</td>
-            <td>{val.currency}</td>
-            <td>{val.transaction_amount}</td>
-            <td>{val.source_of_fund}</td>
-            <td>{val.employ_id}</td>
+          
+            <td><img className="activator" style={{ width: '100%', height: 200 }} src={val.img} /></td>
           </tr>)}))
         console.log(userData);
        
@@ -161,13 +157,8 @@ const verify = async()=>{
                     <th scope="col">Pincode</th>
                     <th scope="col">Id Type</th>
                     <th scope="col">IdNumber</th>
-                    <th scope="col">Transaction Type</th>
-                    <th scope="col">Mode Of Payment</th>
-                    <th scope="col">Currency</th>
-                    <th scope="col">Amount</th>
-                    <th scope="col">Source Of Fund</th>
-                    <th scope="col">Employ Id</th>
-                   
+                    
+                   <th scope="col">Image</th>
                   </tr>
                 </thead>
                 <tbody>{userData}
@@ -175,13 +166,24 @@ const verify = async()=>{
     </tbody>
               </table>
     }
-    </div>
-    );
-  }
-
-
-
+   </div>
+   
+  );
+}
 
 export default RegisteredUsers;
 
 
+  // <td>{val.transaction_type}</td>
+  //           <td>{val.mode_of_payment}</td>
+  //           <td>{val.currency}</td>
+  //           <td>{val.transaction_amount}</td>
+  //           <td>{val.source_of_fund}</td>
+  //           <td>{val.employ_id}</td>
+
+  // <th scope="col">Transaction Type</th>
+  //                   <th scope="col">Mode Of Payment</th>
+  //                   <th scope="col">Currency</th>
+  //                   <th scope="col">Amount</th>
+  //                   <th scope="col">Source Of Fund</th>
+  //                   <th scope="col">Employ Id</th>
