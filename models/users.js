@@ -62,30 +62,6 @@ const UserSchema = new mongoose.Schema({
         type: String,
         require: true
     },
-    transaction_type: {
-        type: String,
-        require: true
-    },
-    mode_of_payment: {
-        type: String,
-        require: true
-    },
-    currency: {
-        type: String,
-        require: true
-    },
-    transaction_amount: {
-        type: Number,
-        require: true
-    },
-    source_of_fund: {
-        type: String,
-        require: true
-    },
-    employ_id: {
-        type: String,
-        require: true
-    },
     img:
     {
         type: String,

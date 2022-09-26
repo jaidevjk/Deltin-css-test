@@ -22,7 +22,7 @@ const navigate = useNavigate();
     e.preventDefault();
      let Email = email;
      let Password = password;
-alert(Email);
+
      axios
       .post("http://localhost:4002/jwt/login", {
         email: Email,
@@ -34,8 +34,8 @@ alert(Email);
         sessionStorage.setItem("user", JSON.stringify(response.data.user.name));
         // console.log("User profile", response.data.user);
         // console.log("User token", response.data.jwt);
-        console.log(response.data.token);
-        console.log(response.data.user)
+        // console.log(response.data.token);
+        // console.log(response.data.user)
         alert("Successfully Verified!");
         navigate(`/adminhome`);
       })

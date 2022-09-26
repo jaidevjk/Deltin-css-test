@@ -7,7 +7,7 @@ import Button from '@mui/material/Button';
 import { useNavigate } from 'react-router-dom';
 
 
-export default function AdminApp() {
+export default function AdminApp(props) {
   const navigate = useNavigate();
   const logoutUser=()=>{
     sessionStorage.removeItem("regtoken");
@@ -20,7 +20,7 @@ export default function AdminApp() {
         <Toolbar >
         <img src="/deltinlogo.png" alt="" style={{marginLeft:0,width:250,height:50}}/>
           <Typography variant="h6" component="div" sx={{ flexGrow: 1}}>
-           <h1 style={{margin:0,textAlign:"left",paddingLeft:"35%"}}>Admin Login</h1>
+           <h1 style={{margin:0,textAlign:"left",paddingLeft:"35%"}}>{props.title}</h1>
           </Typography>
           <Button  sx={{ backgroundColor:"#CFA660",color:"black" }} onClick={logoutUser}>Log Out</Button>
         </Toolbar>

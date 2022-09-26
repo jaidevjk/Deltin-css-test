@@ -19,6 +19,7 @@ function Transaction() {
 
  const {userNumber,playingLocation,userId,userName} = useParams();
  // const {} = useParams();
+ console.log("userId is",userId)
   const Location1 = playingLocation;
   console.log(Location1)
     const inNum = userNumber;
@@ -30,7 +31,7 @@ function Transaction() {
     //const [localDate,setLocalDate]= useState();
     const [item, setItem] = useState()
 
-  const addUser = (e)=>{
+  const addUserTransaction = (e)=>{
 		e.preventDefault();
 		
         console.log(typeof item)
@@ -46,7 +47,6 @@ function Transaction() {
             transaction_amount: e.target.transaction_amount.value,
             source_of_fund: e.target.source_of_fund.value,
             employ_id:e.target.employ_id.value,
-            img:item
 		}
         console.log(userObject);
 		axios.post('http://localhost:4002/transaction/',userObject).then((res)=>{
@@ -68,7 +68,7 @@ function Transaction() {
     <h1>Cash Transaction Report</h1><hr/>
     
     </div>
-    <form onSubmit={addUser}>      
+    <form onSubmit={addUserTransaction}>      
     <Grid container spacing={1} className="container">
         <Grid item xs={12}>
                                 <Grid container   columnSpacing={{ xs: 1, sm: 2, md: 3,large:2 }} className="container1">

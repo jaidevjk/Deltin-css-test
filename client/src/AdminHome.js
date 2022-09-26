@@ -18,14 +18,23 @@ const RegisteredUsers=()=>{
 	navigate('/registeredusers')
 }
 
+const TransactionDetails=()=>{
+	navigate('/transactiondetails')
+}
+
+
 	return (
 		<div>
 		<div style={{width:"100%"}}>
-		<AdminAppbar />
+		<AdminAppbar title={"AdminPanel"}/>
 		</div><br />
 		
 		
-		<div><Button  sx={{ backgroundColor:"#CFA660",color:"black" }} onClick = {RegisteredUsers}>Get Registered</Button></div><br />
+		<div style={{paddingLeft:"33%",paddingRight:"33%"}}>
+		<span style={{float:"left"}}><Button  sx={{ backgroundColor:"#CFA660",color:"black" }} onClick = {RegisteredUsers}>Get RegisteredUsers</Button></span>
+		<span style={{float:"right"}}><Button  sx={{ backgroundColor:"#CFA660",color:"black" }} onClick = {TransactionDetails}>Get TransactionDetails</Button></span>
+
+		</div><br />
 
 		</div>
 );

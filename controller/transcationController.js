@@ -27,7 +27,7 @@ exports.createTransaction =(req,res) => {
         source_of_fund: req.body.source_of_fund,
         employ_id:req.body.employ_id,  
     });
-    
+
     newTransaction.save((error)=>{
         if(error)
         {
@@ -47,3 +47,16 @@ exports.createTransaction =(req,res) => {
         }
     })
 }
+
+
+exports.listTransactions = (request, response) => {
+   Transaction.find(function(err, users_list) {
+        if(err){
+            response.json(err);
+        } else {
+            // console.log("one:",users_list);
+            response.json({status: 1, data: users_list});
+
+        }
+    });
+};

@@ -33,14 +33,14 @@ function Verification(props) {
     axios.post('http://localhost:4002/users/userlogin',userObject).then((res)=>{
       console.log(res.data);
     alert("Successfully Verified!");
-    sessionStorage.setItem("userId",res.data.user.id);
+    sessionStorage.setItem("userId",res.data.user.user_id);
     console.log(sessionStorage.getItem("userId"))
-    const userId = sessionStorage.getItem("userId");
+    const userId = res.data.user.user_id;
     const userName = res.data.user.name;
    //console.log(res.data.status);
    if(sessionStorage.getItem("userId")){
       alert("Player Already Registered")
-       navigate(`/transaction/${sessionStorage.getItem("userId")}/${location1}/${num}/${userName}`);
+       navigate(`/transaction/${userId}/${location1}/${num}/${userName}`);
     }
       
     })

@@ -10,6 +10,7 @@ import AdminLogin from "./AdminLogin";
 import AdminHome from "./AdminHome";
 import RegisteredUsers from "./RegisteredUsers";
 import Transaction from "./Transaction";
+import TransactionDetails from "./TransactionDetails";
 
 export default function RouterApp() {
   return (
@@ -29,6 +30,7 @@ export default function RouterApp() {
         <Route  path="/adminhome" element={<AdminHome />} />
         <Route  path="/registeredusers" element={<RegisteredUsers />} />
         <Route  path="/transaction/:userId/:playingLocation/:userNumber/:userName" element={<Transaction />} />
+        <Route  path="/transactiondetails" element={<TransactionDetails />} />
        
       
     </Routes>

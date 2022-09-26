@@ -10,7 +10,7 @@ import CircularStatic from './CircularLoader';
 import Grid from '@mui/material/Grid';
 import { DownloadTableExcel } from 'react-export-table-to-excel';
 
-function RegisteredUsers() {
+function TransactionDetails() {
   const tableRef = useRef(null);
   const [isAuthenticated,setisAuthenticated] = useState(false);
   const [userData,setData] = useState();
@@ -34,28 +34,26 @@ verify();
 
 let tableBody;
 const verify = async()=>{
+//alert("hiiii")
 
      await axios
-      .get("http://localhost:4002/users/")
+      .get("http://localhost:4002/transaction/")
       .then((response) => {
-        
         let data = response.data;
         // console.log(data.data)
         setData(data.data
           .filter((valu) => {
-            //console.log(typeof valu.email)
+            
         if (search === "") {
          
           return valu;
         } else if (
           valu.phonenumber === parseInt(search)
           //valu.email.toLowerCase() === search.toLowerCase()
-          // valu.email.toLowerCase().includes(search.toLowerCase())
         ) {
-          // console.log("search")
+          
           return valu;
         }
-        // else{alert(`The result for the search value ${search} is not found`)}
       })
           .map((val,index)=>{
             const d = val.dob;
@@ -63,30 +61,23 @@ const verify = async()=>{
             return(
             <tr key={index}>
             <td>{index + 1}</td>
+            <td>{val.user_Id}</td>
             <td>{val.location}</td>
             <td>{val.name}</td>
-            <td>{val.email}</td>
             <td>{val.phonenumber}</td>
-            <td>{val.gender}</td>
-            <td>{val.dob}</td>
-            <td>{val.occupation}</td>
-            <td>{val.nationality}</td>
-            <td>{val.address}</td>
-            <td>{val.country}</td>
-            <td>{val.state}</td>
-            <td>{val.city}</td>
-            <td>{val.pincode}</td>
-            <td>{val.id_type}</td>
-            <td>{val.id_number}</td>
-          
-
+            <td>{val.transaction_type}</td>
+            <td>{val.mode_of_payment}</td>
+            <td>{val.currency}</td>
+            <td>{val.transaction_amount}</td>
+            <td>{val.source_of_fund}</td>
+            <td>{val.employ_id}</td>
           </tr>)}))
         console.log(userData);
        
         })
         
       .catch((error) => {
-        
+        alert("error")
         console.log("An error occurred:", error.response);
 
        
@@ -107,7 +98,7 @@ const verify = async()=>{
       
       <div>
 <div style={{width:"102%"}}>
-    <AdminAppbar title={"Registered Users"}/>
+    <AdminAppbar title={"TransactionDetails"}/>
     </div><br />
 
   <Grid item xs={12} >
@@ -140,24 +131,17 @@ const verify = async()=>{
                 <thead>
                   <tr>
                     <th className="slno">Sl. No</th>
+                    <th scope="col">User Id</th>
                     <th scope="col">Location</th>
                     <th scope="col">Name</th>
-                    <th scope="col">Email</th>
                     <th scope="col">Phone Number</th>
 
-                     <th scope="col">Gender</th>
-                    <th scope="col">Date of Birth</th>
-                    <th scope="col">Occuption</th>
-
-                     <th scope="col">Nationality</th>
-                    <th scope="col">Addres</th>
-                    <th scope="col">Country</th>
-                    <th scope="col">State</th>
-                    <th scope="col">City</th>
-                    <th scope="col">Pincode</th>
-                    <th scope="col">Id Type</th>
-                    <th scope="col">IdNumber</th>
-
+                     <th scope="col">Transaction Type</th>
+                    <th scope="col">Mode Of Payment</th>
+                    <th scope="col">Currency</th>
+                    <th scope="col">Amount</th>
+                    <th scope="col">Source Of Fund</th>
+                    <th scope="col">Employ Id</th>
                   </tr>
                 </thead>
                 <tbody>{userData}
@@ -170,14 +154,19 @@ const verify = async()=>{
   );
 }
 
-export default RegisteredUsers;
+export default TransactionDetails;
 
-/*
 
-<td><img className="activator" style={{ width: '100%', height: 200 }} src={val.img} /></td>  
-                   <th scope="col">Image</th>
-                   
-            
+  // <td>{val.transaction_type}</td>
+  //           <td>{val.mode_of_payment}</td>
+  //           <td>{val.currency}</td>
+  //           <td>{val.transaction_amount}</td>
+  //           <td>{val.source_of_fund}</td>
+  //           <td>{val.employ_id}</td>
 
-*/
-  
+  // <th scope="col">Transaction Type</th>
+  //                   <th scope="col">Mode Of Payment</th>
+  //                   <th scope="col">Currency</th>
+  //                   <th scope="col">Amount</th>
+  //                   <th scope="col">Source Of Fund</th>
+  //                   <th scope="col">Employ Id</th>

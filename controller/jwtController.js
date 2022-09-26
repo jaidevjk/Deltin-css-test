@@ -18,7 +18,7 @@ const secret = jwtsecretO;
 
 const createUser = async(req,res) =>{
 	
-const { email, password , name ,phonenumber} = req.body;
+const { email, password , name} = req.body;
 console.log(email)
   try {
     const existingUser = await Admin.findOne({ email });
@@ -28,7 +28,7 @@ console.log(email)
         .status(400)
         .json(`User Already Exist With this email: ${email}`);
     }
-    const user = new Admin({ email, password, name, phonenumber });
+    const user = new Admin({ email, password, name});
     const salt = await bcrypt.genSalt(10);
     user.password = await bcrypt.hash(password, salt);
     user.save()

@@ -55,12 +55,6 @@ exports.createUser =(req,res) => {
         pincode:req.body.pincode,
         id_type: req.body.id_type,
         id_number: req.body.id_number,
-        transaction_type: req.body.transaction_type,
-        mode_of_payment: req.body.mode_of_payment,
-        currency: req.body.currency,
-        transaction_amount: req.body.transaction_amount,
-        source_of_fund: req.body.source_of_fund,
-        employ_id:req.body.employ_id,
         img:req.body.img
         
         
@@ -144,7 +138,7 @@ exports.listUsers = (request, response) => {
         if(err){
             response.json(err);
         } else {
-            console.log("one:",users_list);
+            // console.log("one:",users_list);
             response.json({status: 1, data: users_list});
 
         }
